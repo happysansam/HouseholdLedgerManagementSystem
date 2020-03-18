@@ -1,2 +1,2 @@
-# HouseholdeledgerManagementSystem
+# HouseholdLedgerManagementSystem
 oop at gnu
