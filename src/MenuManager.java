@@ -1,11 +1,9 @@
 import java.util.Scanner;
-
 public class MenuManager {
 	public static void main(String[] args) {
 		Spending name;
 		name = new Spending();
 		Scanner sc = new Scanner(System.in);
-		
 		System.out.println("*** Householde Ledger Management Sysytem Menu");
 		System.out.println("1. Spending");
 		System.out.println("2. Income");
