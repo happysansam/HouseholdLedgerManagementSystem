@@ -1,4 +1,4 @@
-public class HelloWorld {
+public class MenuManager {
 	public static void main(String[] args) {
 		System.out.println("*** Student Management Sysytem Menu");
 		System.out.println("1. Add Student");
