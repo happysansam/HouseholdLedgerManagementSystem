@@ -17,7 +17,5 @@ public class SpendingList {
 		howS = sch.nextLine();
 		
 		System.out.printf("%dwon, to %s\n", sp, howS);
-		MenuManager.num++;
-		MenuManager.BalanceOne.input();
 	}
 }

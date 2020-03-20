@@ -16,6 +16,7 @@ public class MenuManager {
 	public static void main(String[] args) {
 		
 		int a=0;
+		Balance = 0;
 		sc = new Scanner(System.in);
 		
 		System.out.println("*** Householde Ledger Management Sysytem Menu\n1. Spending\n2. Income\n3. Balance\n4. History\n5. Exit\nSelect one number between 1 - 5:");
@@ -29,11 +30,15 @@ public class MenuManager {
 			SpendingOne.input();
 			Spendingsp[num]=SpendingOne.sp;
 			SpendinghowS[num]=SpendingOne.howS;
+			num++;
+			BalanceOne.input();
 			main(args);
 		case 2:
 			IncomeOne.input();
 			Incomeic[num]=IncomeOne.ic;
 			IncomehowS[num]=IncomeOne.howS;
+			num++;
+			BalanceOne.input();
 			main(args);
 		case 3:
 			BalanceOne.input();
