@@ -12,7 +12,6 @@ public class HistoryList {
 				System.out.printf("Num %d, Income, %dwon, to %s\n", b, MenuManager.Incomeic[b], MenuManager.IncomehowS[b]);
 			}
 		}
-		MenuManager.BalanceOne.input();
 	}
 	HistoryList(){
 		a=0;

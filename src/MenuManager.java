@@ -14,19 +14,21 @@ public class MenuManager {
 	static HistoryList HistoryOne= new HistoryList();
 	
 	public static void main(String[] args) {
+		int a=0;
 		while(true) {
-			if (num!=0) {
-				BalanceOne.input();
+			if(a==4) {
+				break;
 			}
-		
-			int a=0;
+
 			Balance = 0;
 		
-			System.out.println("*** Householde Ledger Management Sysytem Menu\n1. Spending\n2. Income\n3. Balance\n4. History\n5. Exit\nSelect one number between 1 - 5:");
-		
+			System.out.println("*** Householde Ledger Management Sysytem Menu");
+			BalanceOne.input();
+			System.out.println("1. Spending\n2. Income\n3. History\n4. Exit\nSelect one number between 1 - 4:");
+			
 			sc = new Scanner(System.in);
 			a = sc.nextInt();
-		
+
 			switch(a) {
 			default :
 				System.out.println("There's a problem. Please select one number between 1 - 5. Going back to starting point.");
@@ -44,14 +46,11 @@ public class MenuManager {
 				num++;
 				continue;
 			case 3:
-				main(args);
-			case 4:
 				HistoryOne.input();
 				continue;
-			case 5:
+			case 4:
 				break;
 			}
-		break;
 		}
 	}
 }

@@ -1,4 +1,3 @@
-
 public class Balance {
 
 	int a=0;
