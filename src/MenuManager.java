@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class MenuManager {
 	static ArrayList<CashList> Cash = new ArrayList<CashList>();
-	public static int num = 0;
+	public static int num = 1;
 	public static int Balance;
 	static Scanner sc;
 	static CashInsert  Insert = new CashInsert();
@@ -16,7 +16,7 @@ public class MenuManager {
 	public static void main(String[] args) {
 		int a= 0;
 		while(true) {
-			if(a==4) {
+			if(a==6) {
 				break;
 			}
 			
