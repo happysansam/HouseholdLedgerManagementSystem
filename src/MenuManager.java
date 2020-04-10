@@ -2,7 +2,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class Example {
+public class MenuManager {
 	static ArrayList<CashList> Cash = new ArrayList<CashList>();
 	public static int num = 0;
 	public static int Balance;

@@ -10,7 +10,7 @@ public class CashInsert {
 		spsc = new Scanner(System.in);
 		sch = new Scanner(System.in);
 		
-		money.num=Example.num;
+		money.num=MenuManager.num;
 		System.out.println("Please input spending amount :");
 		money.Cash= spsc.nextInt();
 		System.out.println("How :");
@@ -22,6 +22,6 @@ public class CashInsert {
 		else if (a==2) {
 			money.HowIoS = "Income";
 		}
-		Example.Cash.add(money);
+		MenuManager.Cash.add(money);
 	}
 }
