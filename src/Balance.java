@@ -1,12 +1,15 @@
-public class Balance {
 
-	int a=0;
-	public void input(){
-		a=MenuManager.num;
-		for(int b=0;b<=a;b++) {
-				MenuManager.Balance=(MenuManager.Balance-MenuManager.Spendingsp[b]);
-				MenuManager.Balance=(MenuManager.Balance+MenuManager.Incomeic[b]);
+
+public class Balance {
+	public void BalanceCheck() {
+		for (int i=0; i<Example.Cash.size();i++) {
+			if (Example.Cash.get(i).HowIoS=="Spending") {
+				Example.Balance = Example.Balance - Example.Cash.get(i).Cash;
+			}
+			else if (Example.Cash.get(i).HowIoS=="Income") {
+				Example.Balance = Example.Balance + Example.Cash.get(i).Cash;
+			}
 		}
-		System.out.printf("Balance : %d\n", MenuManager.Balance);
+		System.out.print("Balance : " + Example.Balance + "\n");
 	}
 }
