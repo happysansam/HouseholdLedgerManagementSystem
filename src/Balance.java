@@ -1,5 +1,3 @@
-
-
 public class Balance {
 	public void BalanceCheck() {
 		for (int i=0; i<MenuManager.Cash.size();i++) {

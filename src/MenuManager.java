@@ -1,5 +1,7 @@
-
 import java.util.Scanner;
+
+import cash.CashList;
+
 import java.util.ArrayList;
 
 public class MenuManager {

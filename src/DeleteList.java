@@ -7,23 +7,23 @@ public class DeleteList {
 		int a = sc.nextInt();
 		int index = -1;
 		for(int i = 0; i < MenuManager.Cash.size(); i++) {
-			if (MenuManager.Cash.get(i).num == a) {
+			if (MenuManager.Cash.get(i).getNum() == a) {
 				index = i;
 				break;
 			}
 		}
 		
 		for(int i = index; i <MenuManager.Cash.size(); i++) {
-			MenuManager.Cash.get(i).num = MenuManager.Cash.get(i).num -1;
+			MenuManager.Cash.get(i).num--;
 		}
 		MenuManager.num--;
 		
 		if (index >= 0) {
 			MenuManager.Cash.remove(index);
-			System.out.print("the list " + a + " is deleted");
+			System.out.print("the list " + a + " is deleted\n");
 		}
 		else {
-			System.out.print("the list has not found");
+			System.out.print("the list has not found\n");
 		}
 		
 	}

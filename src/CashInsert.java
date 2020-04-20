@@ -1,27 +1,37 @@
-
 import java.util.Scanner;
-public class CashInsert {
+import cash.Bankbook;
+import cash.CashL;
+import cash.walletList;
 
+public class CashInsert {
+	
 	static Scanner spsc;
-	static Scanner sch;
 
 	public void input(int a) {
-		CashList money = new CashList();
-		spsc = new Scanner(System.in);
-		sch = new Scanner(System.in);
 		
-		money.num=MenuManager.num;
-		System.out.println("Please input amount of cash :");
-		money.Cash= spsc.nextInt();
-		System.out.println("How :");
-		money.How = sch.nextLine();
-
-		if (a==1) {
-			money.HowIoS = "Spending";
+		int kind = 0;
+		CashL money1;
+		Bankbook money2;
+		spsc = new Scanner(System.in);
+		
+		while(true) {
+			System.out.print("Press 1 for Cash \npress 2 for Bankbook\n");
+			kind = spsc.nextInt();
+			if (kind ==1) {
+				money1 = new CashL();
+				money1.getCashInfo(a, MenuManager.num, walletList.Cash);
+				MenuManager.Cash.add(money1);
+				break;
+			}
+			else if (kind == 2) {
+				money2 = new Bankbook();
+				money2.getCashInfo(a, MenuManager.num, walletList.Bankbook);
+				MenuManager.Cash.add(money2);
+				break;
+			}
+			else {
+				System.out.print("Please type 1 or 2");
+			}
 		}
-		else if (a==2) {
-			money.HowIoS = "Income";
-		}
-		MenuManager.Cash.add(money);
 	}
 }
