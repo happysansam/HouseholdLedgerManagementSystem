@@ -54,23 +54,4 @@ public abstract class CashList {
 		this.How = How;
 		this.HowIoS=HowIoS;
 	}
-	
-	public void getCashInfo(int a, int num, walletList wallet) {
-		this.wallet = wallet;
-		Scanner input = new Scanner(System.in);
-
-		this.num = num;
-		System.out.println("Please input amount of cash :");
-		this.Cash= input.nextInt();
-		input = new Scanner(System.in);
-		System.out.println("How :");
-		this.How = input.nextLine();
-
-		if (a==1) {
-			this.HowIoS = "Spending";
-		}
-		else if (a==2) {
-			this.HowIoS = "Income";
-		}
-	}
 }
