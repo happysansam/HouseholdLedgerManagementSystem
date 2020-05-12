@@ -2,13 +2,13 @@ package cash;
 
 import java.util.Scanner;
 
-public class CashList {
+public abstract class CashList {
 
-	public walletList wallet = walletList.Cash;
-	public int num;
-	public int Cash;
-	public String How;
-	public String HowIoS;
+	private walletList wallet = walletList.Cash;
+	private int num;
+	private int Cash;
+	private String How;
+	private String HowIoS;
 	
 	public walletList getWallet() {
 		return wallet;
@@ -58,9 +58,6 @@ public class CashList {
 	public void getCashInfo(int a, int num, walletList wallet) {
 		this.wallet = wallet;
 		Scanner input = new Scanner(System.in);
-		
-		int Cash;
-		String How, HowIoS;
 
 		this.num = num;
 		System.out.println("Please input amount of cash :");
@@ -75,9 +72,5 @@ public class CashList {
 		else if (a==2) {
 			this.HowIoS = "Income";
 		}
-	}
-	
-	public void printInfo() {
-		System.out.println("Num : " + num + " " + wallet + " Amount : " + Cash + " How : " + HowIoS + " " + How);
 	}
 }

@@ -2,31 +2,31 @@ package cash;
 
 import java.util.Scanner;
 
-public class CashL extends CashList {
+public class CashL extends CashList implements CashInfo{
 	public void getCashInfo(int a, int num, walletList wallet) {
-		this.wallet = wallet;
+		setWallet(wallet);
 		Scanner input = new Scanner(System.in);
 
-		int Cash, p;
-		String How, HowIoS;
+		int p;
+		String How;
 
-		this.num = num;
+		setNum(num);
 		System.out.println("Please input amount of cash :");
-		this.Cash= input.nextInt();
+		setCash(input.nextInt());
 		input = new Scanner(System.in);
 		
 		while(true) {
 			System.out.print("If you don't want to save where to use press 1 or do press 2 : ");
 			p = input.nextInt();
 			if(p == 1) {
-				this.How = "";
+				setHow("");
 				break;
 			}
 			else if (p == 2) {
 				System.out.println("How :");
 				input = new Scanner(System.in);
 				How = input.nextLine();
-				this.How = How;
+				setHow(How);
 				break;
 			}
 			else {
@@ -36,10 +36,13 @@ public class CashL extends CashList {
 		}
 		
 		if (a==1) {
-			this.HowIoS = "Spending";
+			setHowIoS("Spending");
 		}
 		else if (a==2) {
-			this.HowIoS = "Income";
+			setHowIoS("Income");
 		}
+	}
+	public void printInfo() {
+		System.out.println("Num : " + getNum() + " " + getWallet() + " Amount : " + getCash() + " How : " + getHowIoS() + " " + getHow());
 	}
 }
