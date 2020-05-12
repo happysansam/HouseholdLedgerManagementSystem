@@ -1,7 +1,5 @@
 package cash;
 
-import java.util.Scanner;
-
 public abstract class CashList {
 
 	private walletList wallet = walletList.Cash;
