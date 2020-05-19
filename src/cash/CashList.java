@@ -1,5 +1,7 @@
 package cash;
 
+import exception.CashException;
+
 public abstract class CashList {
 
 	private walletList wallet = walletList.Cash;
@@ -23,7 +25,10 @@ public abstract class CashList {
 	public int getCash() {
 		return Cash;
 	}
-	public void setCash(int cash) {
+	public void setCash(int cash) throws CashException {
+		if(cash<10) {
+			throw new CashException();
+		}
 		Cash = cash;
 	}
 	public String getHow() {

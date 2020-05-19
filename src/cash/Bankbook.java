@@ -2,6 +2,8 @@ package cash;
 
 import java.util.Scanner;
 
+import exception.CashException;
+
 public class Bankbook extends CashList implements CashInfo {
 	public void getCashInfo(int a, int num, walletList wallet) {
 		Scanner input = new Scanner(System.in);
@@ -13,7 +15,12 @@ public class Bankbook extends CashList implements CashInfo {
 			input = new Scanner(System.in);
 
 			System.out.println("Please input amount of cash :");
-			setCash(input.nextInt());
+			try {
+				setCash(input.nextInt());
+			} catch (CashException e1) {
+				System.out.println("Please type more than 10 won.");
+				getCashInfo(a,num,wallet);
+			}
 			setHow("");
 			
 			break;
@@ -22,7 +29,12 @@ public class Bankbook extends CashList implements CashInfo {
 			input = new Scanner(System.in);
 
 			System.out.println("Please input amount of cash :");
-			setCash(input.nextInt());
+			try {
+				setCash(input.nextInt());
+			} catch (CashException e1) {
+				System.out.println("Please type more than 10 won.");
+				getCashInfo(a,num,wallet);
+			}
 			input = new Scanner(System.in);
 			System.out.println("How :");
 			setHow(input.nextLine());
