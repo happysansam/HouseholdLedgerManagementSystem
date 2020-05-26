@@ -1,3 +1,5 @@
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import cash.Bankbook;
@@ -7,10 +9,25 @@ import cash.CashList;
 import cash.walletList;
 import exception.CashException;
 
-public class CashManager {
+public class CashManager implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2715230278478154011L;
 
-	static Scanner sc;
 
+	static ArrayList<CashInfo> Cash = new ArrayList<CashInfo>();
+	transient static Scanner sc;
+	CashManager(Scanner sc) {
+		this.sc = sc;
+	}
+	
+	public void setScanner(Scanner sc) {
+		this.sc = sc;
+	}
+	
+	
 	public static void input(int a) {
 		CashInfo cashinfo;
 
@@ -24,13 +41,13 @@ public class CashManager {
 				if (kind ==1) {
 					cashinfo = new CashL();
 					cashinfo.getCashInfo(a, MenuManager.num, walletList.Cash);
-					MenuManager.Cash.add(cashinfo);
+					Cash.add(cashinfo);
 					break;
 				}
 				else if (kind == 2) {
 					cashinfo = new Bankbook();
 					cashinfo.getCashInfo(a, MenuManager.num, walletList.Bankbook);
-					MenuManager.Cash.add(cashinfo);
+					Cash.add(cashinfo);
 					break;
 				}
 				else {
@@ -49,12 +66,12 @@ public class CashManager {
 	}
 
 	public static void BalanceCheck() {
-		for (int i=0; i<MenuManager.Cash.size();i++) {
-			if (MenuManager.Cash.get(i).getHowIoS()=="Spending") {
-				MenuManager.Balance = MenuManager.Balance - MenuManager.Cash.get(i).getCash();
+		for (int i=0; i<Cash.size();i++) {
+			if (Cash.get(i).getHowIoS()=="Spending") {
+				MenuManager.Balance = MenuManager.Balance - Cash.get(i).getCash();
 			}
-			else if (MenuManager.Cash.get(i).getHowIoS()=="Income") {
-				MenuManager.Balance = MenuManager.Balance + MenuManager.Cash.get(i).getCash();
+			else if (Cash.get(i).getHowIoS()=="Income") {
+				MenuManager.Balance = MenuManager.Balance + Cash.get(i).getCash();
 			}
 		}
 		System.out.print("Balance : " + MenuManager.Balance + "\n");
@@ -67,7 +84,7 @@ public class CashManager {
 		int index = array(a);
 
 		if (index >= 0) {
-			MenuManager.Cash.remove(index);
+			Cash.remove(index);
 			System.out.print("the list " + a + " is deleted\n");
 		}
 		else {
@@ -78,16 +95,16 @@ public class CashManager {
 
 	public static int array(int a) {
 		int index = -1;
-		for(int i = 0; i < MenuManager.Cash.size(); i++) {
-			if (MenuManager.Cash.get(i).getNum() == a) {
+		for(int i = 0; i < Cash.size(); i++) {
+			if (Cash.get(i).getNum() == a) {
 				index = i;
 				break;
 			}
 		}
 
-		for(int i = index; i <MenuManager.Cash.size(); i++) {
-			int b = MenuManager.Cash.get(i).getNum();
-			MenuManager.Cash.get(i).setNum(--b);
+		for(int i = index; i <Cash.size(); i++) {
+			int b = Cash.get(i).getNum();
+			Cash.get(i).setNum(--b);
 		}
 		MenuManager.num--;
 		return index;
@@ -98,9 +115,9 @@ public class CashManager {
 		System.out.print("List number : ");
 		int a = sc.nextInt();
 		int index = -1;
-		for(int i = 0; i < MenuManager.Cash.size(); i++) {
-			CashList cash = (CashList) MenuManager.Cash.get(i);
-			if (MenuManager.Cash.get(i).getNum() == a) {
+		for(int i = 0; i < Cash.size(); i++) {
+			CashList cash = (CashList) Cash.get(i);
+			if (Cash.get(i).getNum() == a) {
 				while (index != 4) {
 					try {
 						showEditMenu();
@@ -157,11 +174,11 @@ public class CashManager {
 	}
 
 	public static void history() {
-		for (int i=0; i<MenuManager.Cash.size();i++) {
-			if (MenuManager.Cash.get(i).getWallet()==walletList.Secret) {
+		for (int i=0; i<Cash.size();i++) {
+			if (Cash.get(i).getWallet()==walletList.Secret) {
 			}
 			else {
-				MenuManager.Cash.get(i).printInfo();
+				Cash.get(i).printInfo();
 			}
 		}
 	}

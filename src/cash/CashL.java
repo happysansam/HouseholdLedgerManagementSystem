@@ -5,6 +5,7 @@ import java.util.Scanner;
 import exception.CashException;
 
 public class CashL extends CashList implements CashInfo{
+
 	public void getCashInfo(int a, int num, walletList wallet) {
 		setWallet(wallet);
 		Scanner input = new Scanner(System.in);
@@ -25,7 +26,7 @@ public class CashL extends CashList implements CashInfo{
 				getCashInfo(a,num,wallet);
 			}
 			try {
-				System.out.print("If you don't want to save where to use press 1 or do press 2 : ");
+				System.out.print("If you don't want to save impormation press 1 or do press 2 : ");
 				p = input.nextInt();
 				if(p == 1) {
 					setHow("");

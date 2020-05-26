@@ -5,6 +5,7 @@ import java.util.Scanner;
 import exception.CashException;
 
 public class Bankbook extends CashList implements CashInfo {
+
 	public void getCashInfo(int a, int num, walletList wallet) {
 		Scanner input = new Scanner(System.in);
 

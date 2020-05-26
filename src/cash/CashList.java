@@ -1,9 +1,15 @@
 package cash;
 
+import java.io.Serializable;
+
 import exception.CashException;
 
-public abstract class CashList {
+public abstract class CashList implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -551678701732555250L;
 	private walletList wallet = walletList.Cash;
 	private int num;
 	private int Cash;
