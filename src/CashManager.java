@@ -10,25 +10,25 @@ import cash.walletList;
 import exception.CashException;
 
 public class CashManager implements Serializable {
-	
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 2715230278478154011L;
 
 
-	static ArrayList<CashInfo> Cash = new ArrayList<CashInfo>();
-	transient static Scanner sc;
+	ArrayList<CashInfo> Cash = new ArrayList<CashInfo>();
+	transient Scanner sc;
 	CashManager(Scanner sc) {
 		this.sc = sc;
 	}
-	
+
 	public void setScanner(Scanner sc) {
 		this.sc = sc;
 	}
-	
-	
-	public static void input(int a) {
+
+
+	public void input(int a) {
 		CashInfo cashinfo;
 
 		int kind = 0;
@@ -65,7 +65,7 @@ public class CashManager implements Serializable {
 
 	}
 
-	public static void BalanceCheck() {
+	public void BalanceCheck() {
 		for (int i=0; i<Cash.size();i++) {
 			if (Cash.get(i).getHowIoS()=="Spending") {
 				MenuManager.Balance = MenuManager.Balance - Cash.get(i).getCash();
@@ -77,7 +77,7 @@ public class CashManager implements Serializable {
 		System.out.print("Balance : " + MenuManager.Balance + "\n");
 	}
 
-	public static void delete() {
+	public void delete() {
 		sc = new Scanner(System.in);
 		System.out.print("List number : ");
 		int a = sc.nextInt();
@@ -93,7 +93,7 @@ public class CashManager implements Serializable {
 
 	}
 
-	public static int array(int a) {
+	public int array(int a) {
 		int index = -1;
 		for(int i = 0; i < Cash.size(); i++) {
 			if (Cash.get(i).getNum() == a) {
@@ -110,7 +110,7 @@ public class CashManager implements Serializable {
 		return index;
 	}
 
-	public static void edit() {
+	public void edit() {
 		sc = new Scanner(System.in);
 		System.out.print("List number : ");
 		int a = sc.nextInt();
@@ -168,17 +168,19 @@ public class CashManager implements Serializable {
 		}
 	}
 
-	public static void showEditMenu() {
+	public void showEditMenu() {
 		System.out.println("*** Householde Ledger Management Sysytem Edit Menu ***");
 		System.out.println("1. Cash\n2. How\n3. Spending or Income\n4. Exit\nSelect one number between 1 - 4 :");
 	}
 
-	public static void history() {
-		for (int i=0; i<Cash.size();i++) {
-			if (Cash.get(i).getWallet()==walletList.Secret) {
-			}
-			else {
-				Cash.get(i).printInfo();
+	public void history() {
+		if (Cash.size() != 0) {
+			for (int i=0; i<Cash.size();i++) {
+				if (Cash.get(i).getWallet()==walletList.Secret) {
+				}
+				else {
+					Cash.get(i).printInfo();
+				}
 			}
 		}
 	}

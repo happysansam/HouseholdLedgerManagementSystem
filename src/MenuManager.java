@@ -40,7 +40,7 @@ public class MenuManager {
 
 				Balance = 0;
 
-				ShowMenu();
+				ShowMenu(cashManager);
 
 				sc = new Scanner(System.in);
 				a = sc.nextInt();
@@ -61,6 +61,7 @@ public class MenuManager {
 					num++;
 					continue;
 				case 3:
+					System.out.println(cashManager);
 					cashManager.history();
 					logger.log("History");
 					continue;
@@ -133,9 +134,9 @@ public class MenuManager {
 	}
 
 
-	public static void ShowMenu() {
+	public static void ShowMenu(CashManager cashManager) {
 		System.out.println("*** Householde Ledger Management Sysytem Menu ***");
-		CashManager.BalanceCheck();
+		cashManager.BalanceCheck();
 		System.out.println("1. Spending\n2. Income\n3. History\n4. Delete\n5. Edit\n6. Exit\nSelect one number between 1 - 6:");
 	}
 }
