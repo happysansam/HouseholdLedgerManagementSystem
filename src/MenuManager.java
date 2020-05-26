@@ -136,7 +136,7 @@ public class MenuManager {
 
 	public static void ShowMenu(CashManager cashManager) {
 		System.out.println("*** Householde Ledger Management Sysytem Menu ***");
-		cashManager.BalanceCheck();
+
 		System.out.println("1. Spending\n2. Income\n3. History\n4. Delete\n5. Edit\n6. Exit\nSelect one number between 1 - 6:");
 	}
 }
