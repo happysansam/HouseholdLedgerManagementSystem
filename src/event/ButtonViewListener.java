@@ -1,4 +1,4 @@
-package listener;
+package event;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,9 +16,10 @@ public class ButtonViewListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		JButton b = (JButton) e.getSource();
-		HistoryViewer viwer = frame.getHistoryviewer();
-		frame.setupPanel(viwer);
+		frame.getContentPane().removeAll();
+		frame.getContentPane().add(frame.getHistoryviewer());
+		frame.revalidate();
+		frame.repaint();
 	}
 
 }

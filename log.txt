@@ -1,4 +1,0 @@
-5월 26, 2020 4:09:16 오후 log.EventLogger log
-정보: History
-5월 26, 2020 4:09:18 오후 log.EventLogger log
-정보: Out

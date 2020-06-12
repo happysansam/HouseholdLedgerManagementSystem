@@ -1,3 +1,4 @@
+package manager;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -166,6 +167,13 @@ public class CashManager implements Serializable {
 				break;
 			}
 		}
+	}
+	
+	public int size() {
+		return Cash.size();
+	}
+	public CashInfo get(int index) {
+		return Cash.get(index);
 	}
 
 	public void showEditMenu() {

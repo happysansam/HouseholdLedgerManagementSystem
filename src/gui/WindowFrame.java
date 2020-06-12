@@ -3,32 +3,27 @@ package gui;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import manager.CashManager;
+
 public class WindowFrame extends JFrame{
+	CashManager cashManager;
 	MenuSelection menuselection;
 	CashInput cashinput;
 	HistoryViewer historyviewer;
-
 	
 
-	public WindowFrame() {
-		this.menuselection  = new MenuSelection(this);
-		this.cashinput  = new CashInput(this);
-		this.historyviewer  = new HistoryViewer(this);
-		
-		
+	public WindowFrame(CashManager cashManager) {
 		this.setSize(500,300);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setTitle("My Frame");
 		
-
+		this.cashManager = cashManager;
+		menuselection  = new MenuSelection(this);
+		cashinput  = new CashInput(this);
+		historyviewer  = new HistoryViewer(this, this.cashManager);
 		
-		this.setupPanel(menuselection);
+		this.add(menuselection);
 		this.setVisible(true);
-	}
-	public void setupPanel(JPanel panel) {
-		this.getContentPane().removeAll();
-		this.getContentPane().add(panel);
-		this.revalidate();
-		this.repaint();
 	}
 	public MenuSelection getMenuselection() {
 		return menuselection;
